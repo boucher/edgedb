@@ -110,7 +110,7 @@ static data. Replace the contents of ``pages/index.tsx`` with the following.
     );
   };
 
-  export default HomePage;
+  export default Home;
 
 After saving, Next.js should hot-reload, and the homepage should look
 something like this.
@@ -321,11 +321,18 @@ we inserted earlier.
 
 To fetch these from the homepage, we'll use ``useState``, ``useEffect``, and
 the built-in ``fetch`` API. At the top of the ``HomePage`` component in
-``pages/index.tsx``, replace the static data with .
+``pages/index.tsx``, replace the static data and add the imports.
 
 .. code-block:: tsx-diff
 
      // pages/index.tsx
+  +  import {useState, useEffect} from 'react';
+
+     type Post = {
+       id: string;
+       title: string;
+       content: string;
+     };
 
      const Home: NextPage = () => {
 
